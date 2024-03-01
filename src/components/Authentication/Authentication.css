@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+.container {
+  display: flex;
+  font-family: "Rubik", sans-serif;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  height: 100vh;
+}
+
+.logo-container {
+  text-align: center;
+}
+
+.logo {
+  width: 400px;
+  height: auto;
+}
+
+.text {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #449989;
+
+  ;
+}
+.label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #449989;
+}
+
+.input-container {
+  margin-top: 20px;
+  padding: 25px;
+  border: 2px solid #449989aa;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid gray;
+  border-radius: 15px;
+  height: 45px;
+  background: #f2f2f2;
+  margin: 5px 0;
+}
+.input::-webkit-input-placeholder {
+  font-size: 15px;
+  font-family: inherit;
+}
+.button {
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #ff5f41;
+  ; /* Adjust colors as needed */
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.button-register:link,
+.button-register:visited {
+  text-decoration: none;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  color: #449989;
+  font-weight: bold;
+  margin-top: 13px;
+  transition: all 0.2s;
+}
+.button-register:hover {
+  font-size: 20px;
+  text-decoration: underline;
+
+}
+.button:hover {
+  background-color: #ff5e41d3;
+}
