@@ -40,7 +40,7 @@ export default function Main() {
       }
     };
     fetchData();
-  });
+  },[userUid]);
 
   const [syncMessageModal, setSyncMessageModal] = useState("");
   const handelSyncList = async () => {

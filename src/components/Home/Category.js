@@ -8,7 +8,7 @@ import ItemCard from "./ItemCard";
 import { TbMeat } from "react-icons/tb";
 import { MdBakeryDining } from "react-icons/md";
 import { GiManualJuicer } from "react-icons/gi";
-
+import CartEmpty from "../../emptyCart.jpg";
 export default function Category({
   categoryItems,
   allItems,
@@ -105,6 +105,9 @@ export default function Category({
               {selectedCategory} Items
               <span className="counter">{categoryItems.length}</span>
             </span>
+            {categoryItems.length===0 &&(
+              <img src={CartEmpty} alt={CartEmpty} className="emptyList"/>
+            )}
             {categoryItems.map((item, index) => (
               <ItemCard
                 key={index}
@@ -119,6 +122,9 @@ export default function Category({
               <FaLayerGroup />
               ALL Items <span className="counter">{allItems.length}</span>
             </span>
+            {allItems.length===0 &&(
+              <img src={CartEmpty} alt={CartEmpty} className="emptyList"/>
+            )}
             {allItems.map((item, index) => (
               <ItemCard
                 key={index}

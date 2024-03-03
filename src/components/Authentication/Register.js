@@ -4,8 +4,10 @@ import Logo from "../../logo.png";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../DB/database";
 import { useNavigate } from "react-router-dom"; // Import useNavigate hook
+import { MdError } from "react-icons/md";
 
 function Register() {
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate(); // Use useNavigate hook
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,12 +15,12 @@ function Register() {
 
   const handleRegister = () => {
     if (email === "" || password === "" || confirmPassword === "") {
-      alert("Please fill in all fields.");
+      setErrorMessage("Please fill in all fields.");
       return;
     }
 
     if (password !== confirmPassword) {
-      alert("Passwords do not match.");
+      setErrorMessage("Passwords do not match.");
       return;
     }
 
@@ -31,8 +33,35 @@ function Register() {
       })
       .catch((error) => {
         // Handle registration errors
+        const errorCode = error.code;
         const errorMessage = error.message;
-        alert(errorMessage);
+        switch (errorCode) {
+          case "auth/email-already-in-use":
+            setErrorMessage(
+              "The email address is already in use by another account."
+            );
+            break;
+          case "auth/invalid-email":
+            setErrorMessage("The email address is not valid.");
+            break;
+          case "auth/operation-not-allowed":
+            setErrorMessage(
+              "The operation is not allowed. Please contact support."
+            );
+            break;
+          case "auth/weak-password":
+            setErrorMessage(
+              "The password is too weak. Please choose a stronger password."
+            );
+            break;
+          case "auth/network-request-failed":
+            setErrorMessage(
+              "A network error occurred while trying to register. Please check your internet connection and try again."
+            );
+            break;
+          default:
+            alert(errorMessage);
+        }
       });
   };
 
@@ -68,6 +97,12 @@ function Register() {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
+          {errorMessage && (
+            <p className="error">
+              <MdError />
+              {errorMessage}
+            </p>
+          )}
           <button className="button" onClick={handleRegister}>
             Register
           </button>

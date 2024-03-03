@@ -299,10 +299,12 @@ header .logo {
   justify-content: space-between;
 }
 .container-add ,.container-all-list {
+  position: relative;
   flex: 1;
   height: 93%;
   overflow-y: scroll;
   padding-right:10px ;
+
 }
 
 .category-name {
@@ -393,4 +395,7 @@ header .logo {
   margin-left: 4px;
   color: #0e100f;
   font-weight: bold;
+}
+.emptyList{
+  width: 100%;
 }

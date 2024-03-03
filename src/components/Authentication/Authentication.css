@@ -32,7 +32,20 @@
   margin-bottom: 5px;
   color: #449989;
 }
-
+.error{
+  color: #D04848;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+}
+.error svg{
+  color: #D04848;
+  font-size: 20px;
+  margin-right: 2px;
+ 
+}
 .input-container {
   margin-top: 20px;
   padding: 25px;
