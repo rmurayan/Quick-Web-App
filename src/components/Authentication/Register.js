@@ -28,8 +28,17 @@ function Register() {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Registration successful
-        console.log("User registered:", userCredential.user);
-        navigate("/main/home");
+        let userInfo = userCredential.user;
+        // Navigate to the main/ page upon successful login
+        navigate("/main/", {
+          state: {
+            userInfo: {
+              userToken: userInfo.accessToken,
+              userEmail: userInfo.email,
+              userUid: auth.currentUser.uid,
+            },
+          },
+        });
       })
       .catch((error) => {
         // Handle registration errors

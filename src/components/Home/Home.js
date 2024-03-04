@@ -6,6 +6,7 @@ import { MdBakeryDining } from "react-icons/md";
 import { GiManualJuicer } from "react-icons/gi";
 import ItemCard from "./ItemCard";
 import ItemModal from "./ItemModal";
+import CartEmpty from "../../emptyCart.jpg";
 import DeleteConfirmationModal from "./DeleteConfirmationModal";
 
 export default function Home({ items, setItem }) {
@@ -96,6 +97,9 @@ export default function Home({ items, setItem }) {
           <FaCarrot />
           Fruit <span className="counter">{getCategoryTotal("Fruit")}</span>
         </span>
+        {getCategoryTotal("Fruit") === 0 && (
+         <img src= {CartEmpty} alt = {CartEmpty} className="emptyList"/>
+        )}
         {items.map(
           (item, index) =>
             item.category === "Fruit" && (
@@ -115,6 +119,9 @@ export default function Home({ items, setItem }) {
           <TbMeat />
           Meat <span className="counter">{getCategoryTotal("Meat")}</span>
         </span>
+        {getCategoryTotal("Meat") === 0 && (
+         <img src= {CartEmpty} alt = {CartEmpty} className="emptyList"/>
+        )}
         {items.map(
           (item, index) =>
             item.category === "Meat" && (
@@ -135,6 +142,9 @@ export default function Home({ items, setItem }) {
           <GiManualJuicer />
           Juices <span className="counter">{getCategoryTotal("Juice")}</span>
         </span>
+        {getCategoryTotal("Juice") === 0 && (
+         <img src= {CartEmpty} alt = {CartEmpty} className="emptyList"/>
+        )}
         {items.map(
           (item, index) =>
             item.category === "Juice" && (
@@ -155,6 +165,9 @@ export default function Home({ items, setItem }) {
           <MdBakeryDining />
           Barkery <span className="counter">{getCategoryTotal("Bakery")}</span>
         </span>
+        {getCategoryTotal("Bakery") === 0 && (
+         <img src= {CartEmpty} alt = {CartEmpty} className="emptyList"/>
+        )}
         {items.map(
           (item, index) =>
             item.category === "Bakery" && (

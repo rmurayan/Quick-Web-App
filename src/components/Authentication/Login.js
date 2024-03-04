@@ -25,7 +25,7 @@ function Login() {
         // Signed in
         let userInfo = userCredential.user;
 
-        // Navigate to the main/home page upon successful login
+        // Navigate to the main/ page upon successful login
         navigate("/main/", {
           state: {
             userInfo: {

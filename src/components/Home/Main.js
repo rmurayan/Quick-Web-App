@@ -134,7 +134,8 @@ export default function Main() {
           />
         );
       default:
-        return <Home items={foodItems} setItem={setFoodItems} />;
+        return (
+        <Home items={foodItems} setItem={setFoodItems} />);
     }
   };
   return (

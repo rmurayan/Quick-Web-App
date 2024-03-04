@@ -40,7 +40,7 @@ html {
 }
 body{
   background-image: url(../../background.jpg);
-  background-repeat: repeat;
+  background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
 }
@@ -398,4 +398,6 @@ header .logo {
 }
 .emptyList{
   width: 100%;
+  opacity: .7;
+
 }
