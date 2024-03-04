@@ -65,7 +65,9 @@ export default function Category({
   };
 
   const handleEditItem = (itemName) => {
-    const selectedItem = categoryItems.find((item) => item.name === itemName);
+    const selectedItem = allItems.find((item) => item.name === itemName);
+    console.log("selectedItem",selectedItem);
+
     if (selectedItem) {
       setNewItemName(selectedItem.name);
       setNewItemQuantity(selectedItem.quantity);
