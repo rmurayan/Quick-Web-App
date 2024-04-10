@@ -1,4 +1,3 @@
-// ItemModal.js
 import React from "react";
 import { RiAddCircleLine } from "react-icons/ri";
 import { IoMdCloseCircle } from "react-icons/io";
@@ -13,7 +12,13 @@ export default function ItemModal({
   newItemQuantity,
   setNewItemQuantity,
   handleAddNewItem,
-}) {
+})
+{
+  const addItemHandle = (event)=>{
+    event.preventDefault();
+    handleAddNewItem();
+
+  }
   return (
     <>
       {showModal && (
@@ -31,26 +36,31 @@ export default function ItemModal({
             <h2 className="modal-title">
               {selectedItemName ? "Edit Item" : "Add New Item"}
             </h2>
+            <form name="addITemForm" onSubmit={addItemHandle}>
             <div className="form-field">
-              <label className="text-label">Item Name</label>
+              <label htmlFor ="itemName" className="text-label">Item Name</label>
               <input
                 type="text"
                 className="text-input"
                 value={newItemName}
+                id="itemName"
+                name="itemName"
                 onChange={(e) => setNewItemName(e.target.value)}
               />
             </div>
             <div className="form-field">
-              <label className="text-label">Quantity:</label>
+              <label htmlFor="quantity" className="text-label">Quantity:</label>
               <input
                 type="number"
+                id="quantity"
+                name="quantity"
                 className="text-input"
                 value={newItemQuantity}
                 onChange={(e) => setNewItemQuantity(e.target.value)}
               />
             </div>
             <div className="modal-btn">
-              <button className="done-btn" onClick={handleAddNewItem}>
+              <button className="done-btn">
                 {selectedItemName ? (
                   <>
                     <GrUpdate />
@@ -64,6 +74,7 @@ export default function ItemModal({
                 )}
               </button>
             </div>
+            </form>
           </div>
         </div>
       )}
