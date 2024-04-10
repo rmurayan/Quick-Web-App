@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import "./Authentication.css";
 import Logo from "../../logo.png";
@@ -73,7 +74,10 @@ function Register() {
         }
       });
   };
-
+  const submitHandler = (event) => {
+    event.preventDefault();
+    handleRegister();
+  };
   return (
     <>
       <div className="container">
@@ -81,27 +85,44 @@ function Register() {
           <img src={Logo} alt="Logo" className="logo" />
           <p className="text">Sign Up for QuickPickList</p>
         </div>
-        <div className="input-container">
-          <label className="label">Email</label>
+        <form
+          className="input-container"
+          name="registerForm"
+          onSubmit={submitHandler}
+        >
+          <label htmlFor="email" className="label">
+            Email
+          </label>
           <input
             className="input"
             type="text"
+            id="email"
+            name="email"
             placeholder="Email"
             value={email}
+            autoComplete="email"
             onChange={(e) => setEmail(e.target.value)}
           />
-          <label className="label">Password</label>
+          <label htmlFor="password" className="label">
+            Password
+          </label>
           <input
             className="input"
             type="password"
+            id="password"
+            name="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <label className="label">Confirm Password</label>
+          <label htmlFor="confirmPassword" className="label">
+            Confirm Password
+          </label>
           <input
             className="input"
             type="password"
+            id="confirmPassword"
+            name="confirmPassword"
             placeholder="Confirm Password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
@@ -112,10 +133,8 @@ function Register() {
               {errorMessage}
             </p>
           )}
-          <button className="button" onClick={handleRegister}>
-            Register
-          </button>
-        </div>
+          <button className="button">Register</button>
+        </form>
       </div>
     </>
   );
