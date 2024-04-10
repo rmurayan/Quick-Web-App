@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import "./Authentication.css";
 import Logo from "../../logo.png";
@@ -90,25 +91,34 @@ function Login() {
         }
       });
   };
+  const submitHandler = (event)=>{
+    event.preventDefault();
+    handleLogin();
+  }
   return (
     <div className="container">
       <div className="logo-container">
         <img src={Logo} alt="Logo" className="logo" />
         <p className="text">Sign In for QuickPickList</p>
       </div>
-      <div className="input-container">
-        <label className="label">Email</label>
+      <form className="input-container"  name= "loginForm" onSubmit={submitHandler}>
+        <label htmlFor = "email" className="label">Email</label>
         <input
           className="input"
           type="text"
+          id="email"
+          name="email"
           placeholder="Email"
+          autoComplete="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <label className="label">Password</label>
+        <label htmlFor="password" className="label">Password</label>
         <input
           className="input"
           type="password"
+          id="password"
+          name="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -120,13 +130,13 @@ function Login() {
           </p>
         )}
 
-        <button className="button" onClick={handleLogin}>
+        <button className="button">
           Login
         </button>
         <Link to="/register" className="button-register">
           Not registered? Create an account
         </Link>
-      </div>
+      </form>
     </div>
   );
 }
