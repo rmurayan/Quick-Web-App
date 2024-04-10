@@ -61,20 +61,27 @@ export default function Header({ userEmail, totalItems, handelSyncList, syncMess
     setShowClipboradModal(true);
     copyToClipboard(foodItems);
   };
-
+  const searchHandle = (event) => {
+    event.preventDefault();
+  }
   return (
     <>
     <header className="header">
       <div className="logo-container">
         <img src={Logo} alt="Logo" className="logo" />
       </div>
-
-      <form action="#" className="search">
-        <input type="text" className="search__input" placeholder="search" />
-        <button className="search__button">
-          <FaSearch className="serach__icon" />
-        </button>
-      </form>
+      <form action="#" className="search" onSubmit={searchHandle}>
+          <input
+            type="text"
+            name="search"
+            id="search"
+            className="search__input"
+            placeholder="search"
+          />
+          <button className="search__button">
+            <FaSearch className="serach__icon" />
+          </button>
+        </form>
       <nav className="user-nav">
         <div className="user-nav__icon-box" onClick={copyFoodItemList}>
           <FaRegCopy className="user-nav__icon" />
